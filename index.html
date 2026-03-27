@@ -7,12 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--red:#c0392b;--gold:#d4a843;--cream:#fdf6ec;--dark:#1a1208;--mid:#3d2b10;--light:#f5ede0}
+    :root{--red:#c8102e;--blue:#002d62;--gold:#d4a843;--cream:#fdf6ec;--dark:#1a1208;--mid:#3d2b10;--light:#f5ede0}
     html{scroll-behavior:smooth}
     body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:.8rem 6vw;background:rgba(26,18,8,.85);backdrop-filter:blur(8px)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:.8rem 6vw;background:rgba(0,45,98,.92);backdrop-filter:blur(8px)}
     .nav-logo{height:44px;width:auto;background:#fff;padding:4px 8px;border-radius:4px}
     .nav-links{display:flex;gap:2rem;align-items:center}
     .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:color .2s}
@@ -25,7 +25,7 @@
     .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 6vw 8vh;overflow:hidden}
     .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
     .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,8,.93) 40%,rgba(26,18,8,.2) 100%)}
-    .flag-stripe{position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--red) 33%,#1a4596 33% 66%,var(--red) 66%);z-index:3}
+    .flag-stripe{position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--blue) 25%,#fff 25% 28%,var(--red) 28% 72%,#fff 72% 75%,var(--blue) 75%);z-index:3}
     .hero-content{position:relative;z-index:1;max-width:680px;animation:fadeUp 1s ease both}
     .hero-eyebrow{font-size:.78rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
     h1{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,8vw,6rem);font-weight:700;color:#fff;line-height:1;margin-bottom:1.2rem}
@@ -42,7 +42,7 @@
     .rating-label{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
 
     /* BAND */
-    .band{background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;gap:.45rem;padding:.75rem 6vw;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+    .band{background:var(--blue);color:#fff;display:flex;flex-direction:column;align-items:center;gap:.45rem;padding:.75rem 6vw;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
 
     /* SHARED */
     section{padding:5.5rem 6vw}
@@ -144,16 +144,16 @@
     .hours-table tr.closed td{color:rgba(61,43,16,.35)}
     .map-wrap{margin-top:1.5rem}
     .map-wrap iframe{width:100%;height:280px;border:none;display:block}
-    .map-address{background:var(--red);color:#fff;padding:1rem 1.2rem;font-size:.82rem;line-height:1.6}
+    .map-address{background:var(--blue);color:#fff;padding:1rem 1.2rem;font-size:.82rem;line-height:1.6}
 
     /* ORDER */
     .order-banner{background:var(--gold);color:var(--dark);text-align:center;padding:4rem 6vw}
     .order-banner h2{color:var(--dark);margin-bottom:.5rem}
     .order-banner p{font-size:1rem;font-weight:300;margin-bottom:2rem;opacity:.7}
-    .btn-dark{background:var(--dark);color:#fff;text-decoration:none;padding:.9rem 2.2rem;font-size:.88rem;font-weight:500;letter-spacing:.05em;display:inline-block;margin:.3rem;transition:background .2s,transform .15s}
-    .btn-dark:hover{background:var(--mid);transform:translateY(-2px)}
+    .btn-dark{background:var(--blue);color:#fff;text-decoration:none;padding:.9rem 2.2rem;font-size:.88rem;font-weight:500;letter-spacing:.05em;display:inline-block;margin:.3rem;transition:background .2s,transform .15s}
+    .btn-dark:hover{background:#003f8a;transform:translateY(-2px)}
 
-    footer{background:var(--dark);color:rgba(255,255,255,.35);text-align:center;padding:2rem 6vw;font-size:.75rem}
+    footer{background:var(--blue);color:rgba(255,255,255,.5);text-align:center;padding:2rem 6vw;font-size:.75rem}
     footer a{color:var(--gold);text-decoration:none}
 
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
@@ -184,7 +184,7 @@
     <div class="rating-label">150 Google Reviews</div>
   </div>
   <div class="hero-content">
-    <p class="hero-eyebrow">&#127465;&#127476; Authentic Dominican Cuisine &middot; Highlandtown, Baltimore</p>
+    <p class="hero-eyebrow" style="display:flex;align-items:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" style="height:22px;width:33px;vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,0.2);border-radius:2px;flex-shrink:0"><rect width="450" height="300" fill="#002d62"/><rect x="450" width="450" height="300" fill="#c8102e"/><rect y="300" width="450" height="300" fill="#c8102e"/><rect x="450" y="300" width="450" height="300" fill="#002d62"/><rect x="375" width="150" height="600" fill="#fff"/><rect y="225" width="900" height="150" fill="#fff"/><circle cx="450" cy="300" r="80" fill="#fff"/><circle cx="450" cy="300" r="70" fill="#2e7d32"/></svg>Authentic Dominican Cuisine &middot; Highlandtown, Baltimore</p>
     <h1>Ana<br/><em>Restaurant</em></h1>
     <p class="hero-sub">"El Verdadero Sabor Dominicano." Fresh, homemade, and full of heart &mdash; right here on Eastern Ave.</p>
     
@@ -197,7 +197,7 @@
 
 <!-- BAND -->
 <div class="band">
-  <span>&#128205; 3314 Eastern Ave, Highlandtown</span>
+  <span>🇩🇴 &nbsp;Ana Restaurant &middot; 3314 Eastern Ave, Highlandtown</span>
   <span>&#128222; (301) 624-0331</span>
   <span>&#128336; Mon &amp; Wed&ndash;Sun &middot; 8AM&ndash;8PM</span>
   <span>&#128663; Takeout &amp; Delivery Available</span>
