@@ -167,6 +167,14 @@
     .strip-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
     .strip-img:hover img{transform:scale(1.04)}
 
+    /* LIGHTBOX */
+    .lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.92);justify-content:center;align-items:center;cursor:zoom-out;-webkit-tap-highlight-color:transparent}
+    .lightbox.active{display:flex}
+    .lightbox img{max-width:92vw;max-height:90vh;object-fit:contain;border-radius:4px;box-shadow:0 4px 40px rgba(0,0,0,.5)}
+    .lightbox-close{position:absolute;top:1rem;right:1.2rem;color:#fff;font-size:2rem;cursor:pointer;opacity:.7;transition:opacity .2s;z-index:1000;line-height:1}
+    .lightbox-close:hover{opacity:1}
+    .food-card img,.about-img img,.tambien img,.find-us img{cursor:zoom-in}
+
   </style>
 </head>
 <body>
@@ -418,6 +426,12 @@
   <p>&copy; 2025 Ana Restaurant &middot; Baltimore, MD &middot; <a href="https://www.instagram.com/anarestaurantrd/" target="_blank">@anarestaurantrd</a></p>
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+
 <script>
   const reveals=document.querySelectorAll('.reveal');
   const io=new IntersectionObserver((entries)=>{
@@ -426,6 +440,23 @@
     });
   },{threshold:0.08});
   reveals.forEach(el=>io.observe(el));
+
+  // Lightbox
+  const lb=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lightbox-img');
+  document.querySelectorAll('.food-card img, .about-img img, .tambien img, .find-us img').forEach(img=>{
+    img.addEventListener('click',()=>{
+      lbImg.src=img.src;
+      lbImg.alt=img.alt;
+      lb.classList.add('active');
+      document.body.style.overflow='hidden';
+    });
+  });
+  function closeLightbox(){
+    lb.classList.remove('active');
+    document.body.style.overflow='';
+  }
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
 </script>
 </body>
 </html>
