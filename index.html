@@ -47,12 +47,14 @@
     .rating-num{font-family:'Playfair Display',serif;font-size:4.2rem;font-weight:700;color:#fff;line-height:1;text-shadow:0 2px 12px rgba(0,0,0,.3)}
     .rating-stars{font-size:1.3rem;color:var(--gold);margin:.3rem 0;letter-spacing:.05em}
     .rating-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+    .hero-rating-inline{display:none;align-items:center;gap:.7rem;margin-bottom:1.4rem;padding:.5rem .9rem;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(212,168,67,.3);border-radius:3px;width:fit-content}
+    .hero-rating-inline strong{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;font-weight:700;line-height:1}
+    .hero-rating-inline .stars{color:var(--gold);font-size:.85rem;letter-spacing:.05em}
+    .hero-rating-inline .count{font-size:.7rem;letter-spacing:.08em;color:rgba(255,255,255,.65);text-transform:uppercase}
     @media(max-width:768px){
       .hero{padding:0 6vw 7vh;min-height:92vh}
-      .hero-rating{top:4.5rem;right:5vw}
-      .rating-num{font-size:2.8rem}
-      .rating-stars{font-size:1rem}
-      .rating-label{font-size:.62rem}
+      .hero-rating{display:none}
+      .hero-rating-inline{display:inline-flex}
       .hero-sub{font-size:1rem;margin-bottom:1.8rem}
       .hero-ctas .btn-primary,.hero-ctas .btn-secondary{flex:1 1 auto;min-width:0;text-align:center;padding:.85rem 1rem;font-size:.82rem}
     }
@@ -160,6 +162,19 @@
     .catering-cta-phone-small{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);text-decoration:none;font-weight:700;transition:color .2s;letter-spacing:.01em}
     .catering-cta-phone-small:hover{color:#fff}
     .catering-note{font-size:.78rem;color:rgba(255,255,255,.5);font-style:italic;margin-top:1.5rem;text-align:center}
+
+    /* POLLO HORNEADO BANNER */
+    .pollo-banner{background:var(--dark);display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:0}
+    @media(max-width:768px){.pollo-banner{grid-template-columns:1fr}}
+    .pollo-banner-text{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center}
+    @media(max-width:768px){.pollo-banner-text{padding:3.5rem 6vw 2.8rem;text-align:center;order:2}}
+    .pollo-banner-eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:0 0 1rem}
+    .pollo-banner-text h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4.5vw,2.8rem);color:#fff;margin:0;line-height:1.1;letter-spacing:-.005em}
+    .pollo-banner-img{position:relative;overflow:hidden;min-height:420px;background:#1a1208}
+    @media(max-width:768px){.pollo-banner-img{min-height:0;order:1}}
+    .pollo-banner-img img{width:100%;height:100%;object-fit:cover;display:block;object-position:center 40%;position:absolute;inset:0}
+    @media(max-width:768px){.pollo-banner-img{height:300px}.pollo-banner-img img{position:relative}}
+
     .tambien{background:var(--light);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
     @media(max-width:768px){.tambien{grid-template-columns:1fr;gap:2.5rem}}
     .tambien img{width:100%;height:380px;object-fit:cover;object-position:center;display:block}
@@ -206,14 +221,22 @@
     /* HOURS */
     .info{background:var(--light);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
     @media(max-width:768px){.info{grid-template-columns:1fr;gap:3rem}}
-    .hours-table{width:100%;border-collapse:collapse;margin-top:1.5rem}
-    .hours-table tr{border-bottom:1px solid rgba(61,43,16,.12)}
-    .hours-table td{padding:.7rem 0;font-size:.92rem;color:var(--mid)}
+    .hours-table{width:100%;border-collapse:collapse;margin-top:1.5rem;background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 1px 3px rgba(26,18,8,.06)}
+    .hours-table tr{border-bottom:1px solid rgba(61,43,16,.08)}
+    .hours-table tr:last-child{border-bottom:none}
+    .hours-table td{padding:.85rem 1.2rem;font-size:.92rem;color:var(--mid)}
     .hours-table td:last-child{text-align:right;font-weight:500}
-    .hours-table tr.closed td{color:rgba(61,43,16,.35)}
-    .map-wrap{margin-top:1.5rem}
-    .map-wrap iframe{width:100%;height:280px;border:none;display:block}
-    .map-address{background:var(--blue);color:#fff;padding:1rem 1.2rem;font-size:.82rem;line-height:1.6}
+    .hours-table tr.closed td{color:rgba(61,43,16,.35);font-style:italic}
+    .hours-table tr.today{background:rgba(212,168,67,.1)}
+    .hours-table tr.today td{color:var(--dark);font-weight:600}
+    .hours-table tr.today td:first-child::after{content:" · TODAY";font-size:.65rem;letter-spacing:.14em;color:var(--red);font-weight:700;margin-left:.5rem}
+    .map-card{margin-top:1.5rem;background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 1px 3px rgba(26,18,8,.06)}
+    .map-card iframe{width:100%;height:300px;border:none;display:block}
+    .map-card-foot{padding:1.1rem 1.4rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;border-top:1px solid rgba(61,43,16,.08)}
+    .map-card-foot .map-addr{font-size:.86rem;color:var(--mid);line-height:1.5}
+    .map-card-foot .map-addr strong{display:block;color:var(--dark);font-weight:600;margin-bottom:.15rem}
+    .map-card-foot a{font-size:.78rem;letter-spacing:.06em;color:var(--blue);text-decoration:none;font-weight:500;padding:.5rem .9rem;border:1px solid var(--blue);border-radius:2px;transition:background .2s,color .2s;white-space:nowrap}
+    .map-card-foot a:hover{background:var(--blue);color:#fff}
 
     /* ORDER */
     .order-banner{background:var(--gold);color:var(--dark);text-align:center;padding:4.5rem 6vw;position:relative;overflow:hidden}
@@ -223,8 +246,24 @@
     .btn-dark{background:var(--blue);color:#fff;text-decoration:none;padding:.95rem 2.2rem;font-size:.88rem;font-weight:500;letter-spacing:.05em;display:inline-block;margin:.3rem;transition:background .2s,transform .15s,box-shadow .2s;border-radius:2px;position:relative}
     .btn-dark:hover{background:var(--dark);transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,45,98,.25)}
 
-    footer{background:var(--blue);color:rgba(255,255,255,.5);text-align:center;padding:2rem 6vw;font-size:.75rem}
-    footer a{color:var(--gold);text-decoration:none}
+    /* FOOTER */
+    footer{background:var(--dark);color:rgba(255,255,255,.7);padding:4rem 6vw 2rem;font-size:.88rem;border-top:6px solid var(--gold);position:relative}
+    footer::before{content:"";position:absolute;top:-6px;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--blue) 25%,#fff 25% 28%,var(--red) 28% 72%,#fff 72% 75%,var(--blue) 75%);display:none}
+    .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;max-width:1300px;margin-left:auto;margin-right:auto}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+    @media(max-width:540px){.footer-grid{grid-template-columns:1fr;gap:2rem}}
+    .footer-col h4{font-family:'DM Sans',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem}
+    .footer-col p,.footer-col a{font-size:.88rem;line-height:1.75;color:rgba(255,255,255,.65);text-decoration:none;display:block;font-weight:300}
+    .footer-col a:hover{color:var(--gold)}
+    .footer-brand h3{font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;font-weight:700;margin-bottom:.5rem;line-height:1}
+    .footer-brand h3 em{font-style:italic;font-weight:400;color:var(--gold)}
+    .footer-brand p{margin-top:.8rem;font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.65;max-width:280px}
+    .footer-hours{font-size:.82rem;line-height:1.7}
+    .footer-hours .closed{color:rgba(255,255,255,.35);font-style:italic}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.74rem;color:rgba(255,255,255,.4);max-width:1300px;margin:0 auto}
+    .footer-bottom a{color:var(--gold);text-decoration:none}
+    .footer-bottom a:hover{color:#fff}
+    @media(max-width:600px){.footer-bottom{flex-direction:column;text-align:center}}
     @media(max-width:768px){footer{padding-bottom:5.5rem}}
 
     /* MOBILE STICKY CTA */
@@ -280,6 +319,11 @@
   <div class="hero-content">
     <p class="hero-eyebrow" style="display:flex;align-items:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" style="height:36px;width:54px;vertical-align:middle;margin-right:10px;border:1px solid rgba(255,255,255,0.25);border-radius:3px;flex-shrink:0"><rect width="450" height="300" fill="#002d62"/><rect x="450" width="450" height="300" fill="#c8102e"/><rect y="300" width="450" height="300" fill="#c8102e"/><rect x="450" y="300" width="450" height="300" fill="#002d62"/><rect x="375" width="150" height="600" fill="#fff"/><rect y="225" width="900" height="150" fill="#fff"/><circle cx="450" cy="300" r="80" fill="#fff"/><circle cx="450" cy="300" r="70" fill="#2e7d32"/></svg>Authentic Dominican Cuisine &middot; Highlandtown, Baltimore</p>
     <h1>Ana<br/><em>Restaurant</em></h1>
+    <div class="hero-rating-inline">
+      <strong>4.9</strong>
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="count">150 Google Reviews</span>
+    </div>
     <p class="hero-sub">"El Verdadero Sabor Dominicano." Fresh, homemade, and full of heart &mdash; right here on Eastern Ave.</p>
     
     <div class="hero-ctas">
@@ -523,6 +567,22 @@
   </div>
 </section>
 
+<!-- PESCADO FRITO BANNER -->
+<div class="reveal" style="line-height:0;">
+  <img src="img/img_18.jpg" alt="Fresh and Tasty Fried Fish — Ana Restaurant" style="width:100%;display:block;"/>
+</div>
+
+<!-- POLLO HORNEADO -->
+<div class="pollo-banner reveal">
+  <div class="pollo-banner-text">
+    <p class="pollo-banner-eyebrow">Fresh Daily</p>
+    <h2>Pollo Horneado.<br/>Nothing like it in Baltimore.</h2>
+  </div>
+  <div class="pollo-banner-img">
+    <img src="img/img_14.jpg" alt="Pollo Horneado on the rotisserie"/>
+  </div>
+</div>
+
 <!-- TAMBIÉN OFRECEMOS -->
 <section class="tambien reveal">
   <img src="img/img_10.jpg" alt="Dominican grocery items and juices" />
@@ -539,20 +599,6 @@
     </div>
   </div>
 </section>
-
-<!-- PESCADO FRITO BANNER -->
-<div class="reveal" style="line-height:0;">
-  <img src="img/img_18.jpg" alt="Fresh and Tasty Fried Fish — Ana Restaurant" style="width:100%;display:block;"/>
-</div>
-
-<!-- POLLO HORNEADO -->
-<div class="reveal" style="position:relative;background:var(--dark);text-align:center;">
-  <img src="img/img_14.jpg" alt="Pollo Horneado on the rotisserie" style="width:100%;max-width:800px;display:block;margin:0 auto;object-fit:contain;"/>
-  <div style="position:absolute;top:0;left:0;right:0;padding:2.5rem 2rem 6rem;background:linear-gradient(to bottom, rgba(0,0,0,.72) 0%, rgba(0,0,0,.4) 50%, transparent 100%);">
-    <p style="font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:0 0 .6rem;">Fresh Daily</p>
-    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,6vw,2.6rem);color:#fff;margin:0;line-height:1.15;">Pollo Horneado.<br>Nothing like it in Baltimore.</h2>
-  </div>
-</div>
 
 <!-- FIND US -->
 <section class="find-us reveal">
@@ -576,21 +622,27 @@
     <p class="section-label">Hours</p>
     <h2>We're open<br/>six days a week.</h2>
     <table class="hours-table">
-      <tr><td>Monday</td><td>8:00 AM &ndash; 8:00 PM</td></tr>
-      <tr class="closed"><td>Tuesday</td><td>Closed</td></tr>
-      <tr><td>Wednesday</td><td>8:00 AM &ndash; 8:00 PM</td></tr>
-      <tr><td>Thursday</td><td>8:00 AM &ndash; 8:00 PM</td></tr>
-      <tr><td>Friday</td><td>8:00 AM &ndash; 8:00 PM</td></tr>
-      <tr><td>Saturday</td><td>8:00 AM &ndash; 8:00 PM</td></tr>
-      <tr><td>Sunday</td><td>9:00 AM &ndash; 8:00 PM</td></tr>
+      <tr data-day="1"><td>Monday</td><td>8:00 AM &ndash; 8:00 PM</td></tr>
+      <tr class="closed" data-day="2"><td>Tuesday</td><td>Closed</td></tr>
+      <tr data-day="3"><td>Wednesday</td><td>8:00 AM &ndash; 8:00 PM</td></tr>
+      <tr data-day="4"><td>Thursday</td><td>8:00 AM &ndash; 8:00 PM</td></tr>
+      <tr data-day="5"><td>Friday</td><td>8:00 AM &ndash; 8:00 PM</td></tr>
+      <tr data-day="6"><td>Saturday</td><td>8:00 AM &ndash; 8:00 PM</td></tr>
+      <tr data-day="0"><td>Sunday</td><td>9:00 AM &ndash; 8:00 PM</td></tr>
     </table>
   </div>
   <div class="reveal">
     <p class="section-label">Location</p>
     <h2>3314 Eastern Ave.</h2>
-    <div class="map-wrap">
+    <div class="map-card">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d793.4!2d-76.5694!3d39.2868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c803d76b68e9fd%3A0x7a7221fd66258!2sAna%20Restaurant%2C%203314%20Eastern%20Ave%2C%20Baltimore%2C%20MD%2021224!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
-      <div class="map-address">3314 Eastern Ave &middot; Baltimore, MD 21224<br/>Highlandtown &middot; Between S. Clinton and S. Highland Ave</div>
+      <div class="map-card-foot">
+        <div class="map-addr">
+          <strong>3314 Eastern Ave</strong>
+          Baltimore, MD 21224 &middot; Highlandtown
+        </div>
+        <a href="https://maps.google.com/?q=3314+Eastern+Ave+Baltimore+MD+21224" target="_blank">Get Directions &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
@@ -604,7 +656,38 @@
 </section>
 
 <footer>
-  <p>&copy; 2025 Ana Restaurant &middot; Baltimore, MD &middot; <a href="https://www.instagram.com/anarestaurantrd/" target="_blank">@anarestaurantrd</a></p>
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <h3>Ana <em>Restaurant</em></h3>
+      <p>Authentic Dominican cuisine in the heart of Highlandtown. Fresh, homemade, full of heart.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <a href="https://maps.google.com/?q=3314+Eastern+Ave+Baltimore+MD+21224" target="_blank">3314 Eastern Ave</a>
+      <p>Baltimore, MD 21224<br/>Highlandtown</p>
+      <a href="tel:3016240331" style="margin-top:.6rem;color:var(--gold)">(301) 624-0331</a>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <div class="footer-hours">
+        Mon &middot; 8AM&ndash;8PM<br/>
+        <span class="closed">Tue &middot; Closed</span><br/>
+        Wed&ndash;Sat &middot; 8AM&ndash;8PM<br/>
+        Sun &middot; 9AM&ndash;8PM
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Order &amp; Follow</h4>
+      <a href="https://www.doordash.com/store/ana-restaurant-baltimore-32869451/" target="_blank">DoorDash</a>
+      <a href="https://www.ubereats.com/store/ana-restaurant/lejddbJLTkaPdJdZURCDtw" target="_blank">Uber Eats</a>
+      <a href="https://www.instagram.com/anarestaurantrd/" target="_blank">Instagram</a>
+      <a href="#catering">Catering Inquiries</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Ana Restaurant &middot; All rights reserved</span>
+    <span>El Verdadero Sabor Dominicano &middot; <a href="https://www.instagram.com/anarestaurantrd/" target="_blank">@anarestaurantrd</a></span>
+  </div>
 </footer>
 
 <!-- MOBILE STICKY CTA -->
@@ -621,6 +704,11 @@
 </div>
 
 <script>
+  // Highlight today in hours table
+  const today = new Date().getDay();
+  const todayRow = document.querySelector(`.hours-table tr[data-day="${today}"]`);
+  if (todayRow) todayRow.classList.add('today');
+
   const reveals=document.querySelectorAll('.reveal');
   const io=new IntersectionObserver((entries)=>{
     entries.forEach((e,i)=>{
