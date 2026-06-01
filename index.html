@@ -327,11 +327,12 @@
     <p class="hero-sub">"El Verdadero Sabor Dominicano." Fresh, homemade, and full of heart &mdash; right here on Eastern Ave.</p>
     
     <div class="hero-ctas">
-      <a href="https://www.doordash.com/store/ana-restaurant-baltimore-32869451/" target="_blank" class="btn-primary">Order on DoorDash</a>
-      <a href="https://www.ubereats.com/store/ana-restaurant/lejddbJLTkaPdJdZURCDtw" target="_blank" class="btn-primary">Order on Uber Eats</a>
+      <!-- TODO: replace href with Ana's live Clover hosted online-ordering URL (order.clover.com/...) -->
+      <a href="https://order.clover.com/" target="_blank" class="btn-primary">Order Pickup &amp; Delivery</a>
+      <a href="tel:3016240331" class="btn-secondary">Call to Order &middot; (301) 624-0331</a>
     </div>
     <div class="hero-ctas" style="margin-top:.6rem;">
-      <a href="tel:3016240331" class="btn-secondary">Call for Takeout &middot; (301) 624-0331</a>
+      <a href="https://www.doordash.com/store/ana-restaurant-baltimore-32869451/" target="_blank" class="btn-secondary">Also on DoorDash</a>
       <a href="#menu" class="btn-secondary">See the Menu</a>
     </div>
   </div>
@@ -483,15 +484,51 @@
       </div>
     </div>
 
+    <style>
+      .catering-form{display:flex;flex-direction:column;gap:.6rem;width:100%;min-width:280px}
+      .catering-form .cf-row{display:flex;gap:.6rem}
+      @media(max-width:540px){.catering-form .cf-row{flex-direction:column}}
+      .catering-form .cf-input{flex:1;width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(212,168,67,.3);border-radius:3px;padding:.7rem .8rem;color:#fff;font-family:'DM Sans',sans-serif;font-size:.9rem}
+      .catering-form .cf-input::placeholder{color:rgba(255,255,255,.45)}
+      .catering-form select.cf-input{appearance:none;-webkit-appearance:none}
+      .catering-form select.cf-input option{color:#111}
+      .catering-form .cf-input:focus{outline:none;border-color:var(--gold)}
+      .catering-form .cf-textarea{resize:vertical;min-height:70px}
+      .catering-form .cf-submit{margin-top:.3rem;border:none;cursor:pointer;width:100%}
+    </style>
     <div class="catering-cta">
       <div class="catering-cta-text">
         <h3>Planning something? Let&rsquo;s talk.</h3>
-        <p>Call us at least 48 hours ahead. We&rsquo;ll walk you through the menu, portions, and pickup or delivery options.</p>
+        <p>Tell us about your event and we&rsquo;ll send a custom quote. Prefer to talk it through? Call <a href="tel:3016240331" class="catering-cta-phone-small">(301) 624-0331</a> &mdash; at least 48 hours ahead.</p>
       </div>
-      <div class="catering-cta-btns">
-        <a href="tel:3016240331" class="catering-cta-btn">&#128222; Call to Book Catering</a>
-        <a href="tel:3016240331" class="catering-cta-phone-small">(301) 624-0331</a>
-      </div>
+      <!-- TODO: replace action with your form endpoint, e.g. https://formspree.io/f/xxxxxxxx -->
+      <form class="catering-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <div class="cf-row">
+          <input class="cf-input" type="text" name="name" placeholder="Your name" required />
+          <input class="cf-input" type="tel" name="phone" placeholder="Phone" required />
+        </div>
+        <div class="cf-row">
+          <input class="cf-input" type="email" name="email" placeholder="Email" required />
+          <input class="cf-input" type="date" name="event_date" aria-label="Event date" required />
+        </div>
+        <div class="cf-row">
+          <select class="cf-input" name="event_type" required>
+            <option value="" disabled selected>Type of event</option>
+            <option>Quincea&ntilde;era</option>
+            <option>Baptism</option>
+            <option>Graduation</option>
+            <option>Office lunch</option>
+            <option>Family reunion</option>
+            <option>Wedding</option>
+            <option>Memorial lunch</option>
+            <option>Birthday party</option>
+            <option>Other</option>
+          </select>
+          <input class="cf-input" type="number" name="headcount" min="1" placeholder="Approx. guests" required />
+        </div>
+        <textarea class="cf-input cf-textarea" name="message" placeholder="Menu interest, budget, delivery address, anything else"></textarea>
+        <button type="submit" class="catering-cta-btn cf-submit">Request a Catering Quote</button>
+      </form>
     </div>
 
     <p class="catering-note">Pricing varies by menu, headcount, and delivery distance. Call for a custom quote &mdash; we&rsquo;ll match your budget where we can.</p>
@@ -606,7 +643,7 @@
     <p class="section-label">Find Us</p>
     <h2>Eastern Ave,<br/>Highlandtown.</h2>
     <p>Right in the heart of Baltimore's Highlandtown neighborhood &mdash; the block where Dominican flavor found its Baltimore home.</p>
-    <p>Walk-ins welcome. Takeout ready. Delivery through DoorDash and Uber Eats.</p>
+    <p>Walk-ins welcome. Takeout ready. Delivery through our own drivers and DoorDash.</p>
     <a href="tel:3016240331" class="phone-big">(301) 624-0331</a>
     <p class="phone-label">Tap to call &middot; Takeout welcome</p>
     <a href="https://www.instagram.com/anarestaurantrd/" target="_blank" class="social-link">&#128247; Instagram: @anarestaurantrd</a>
@@ -650,9 +687,10 @@
 <!-- ORDER -->
 <section class="order-banner reveal">
   <h2>Hungry right now?</h2>
-  <p>Order delivery through your favorite app.</p>
-  <a href="https://www.doordash.com/store/ana-restaurant-baltimore-32869451/" target="_blank" class="btn-dark">Order on DoorDash</a>
-  <a href="https://www.ubereats.com/store/ana-restaurant/lejddbJLTkaPdJdZURCDtw" target="_blank" class="btn-dark">Order on Uber Eats</a>
+  <p>Order pickup or delivery online &mdash; or grab it on DoorDash.</p>
+  <!-- TODO: replace href with Ana's live Clover hosted online-ordering URL -->
+  <a href="https://order.clover.com/" target="_blank" class="btn-dark">Order Pickup &amp; Delivery</a>
+  <a href="https://www.doordash.com/store/ana-restaurant-baltimore-32869451/" target="_blank" class="btn-dark">Also on DoorDash</a>
 </section>
 
 <footer>
@@ -679,7 +717,8 @@
     <div class="footer-col">
       <h4>Order &amp; Follow</h4>
       <a href="https://www.doordash.com/store/ana-restaurant-baltimore-32869451/" target="_blank">DoorDash</a>
-      <a href="https://www.ubereats.com/store/ana-restaurant/lejddbJLTkaPdJdZURCDtw" target="_blank">Uber Eats</a>
+      <!-- TODO: replace href with Ana's live Clover hosted online-ordering URL -->
+      <a href="https://order.clover.com/" target="_blank">Order Online</a>
       <a href="https://www.instagram.com/anarestaurantrd/" target="_blank">Instagram</a>
       <a href="#catering">Catering Inquiries</a>
     </div>
