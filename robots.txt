@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://liquid1188.github.io/ana-restaurant/sitemap.xml
