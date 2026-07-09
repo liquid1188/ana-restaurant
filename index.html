@@ -338,10 +338,10 @@ nav{background:var(--blue);border-bottom:3px solid var(--gold);padding:.65rem 6v
 .hero-bg::after{display:none}
 .hero-scrim{position:absolute;inset:0;z-index:0;
   background:linear-gradient(103deg,rgba(14,36,82,.94) 0%,rgba(14,36,82,.82) 34%,rgba(36,22,16,.55) 62%,rgba(36,22,16,.15) 100%)}
-.hero-flag{position:absolute;top:0;left:0;right:0;height:8px;z-index:3;
-  background:linear-gradient(90deg,var(--blue) 0 33.3%,#fff 33.3% 38%,var(--red) 38% 100%)}
 .hero-content{position:relative;z-index:2;max-width:720px;animation:fadeUp 1s ease both}
-.hero-eyebrow{color:var(--gold);margin-bottom:.7rem;display:block}
+.hero-eyebrow{color:var(--gold);margin-bottom:.7rem;display:flex;align-items:center;gap:.6rem}
+.do-flag{height:1.15em;width:auto;border-radius:2px;border:1px solid rgba(255,255,255,.28);
+  box-shadow:0 1px 4px rgba(0,0,0,.25);flex-shrink:0;transform:translateY(-1px)}
 .hero-mark{font-family:'Bricolage Grotesque',sans-serif;line-height:.82;margin:0 0 1.2rem;
   display:flex;flex-direction:column;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.35)}
 .hero-mark .mark-ana{font-weight:800;font-size:clamp(4.6rem,15vw,9.5rem);letter-spacing:-.04em}
@@ -432,9 +432,9 @@ nav{background:var(--blue);border-bottom:3px solid var(--gold);padding:.65rem 6v
 <section class="hero" id="top">
   <div class="hero-bg" style="background-image:url('img/img_12.jpg?v=2');"></div>
   <div class="hero-scrim"></div>
-  <div class="hero-flag" aria-hidden="true"></div>
+
   <div class="hero-content">
-    <p class="hero-eyebrow">Authentic Dominican Cuisine &middot; Highlandtown, Baltimore</p>
+    <p class="hero-eyebrow"><svg class="do-flag" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" aria-label="Dominican Republic flag"><rect width="450" height="300" fill="#16357E"/><rect x="450" width="450" height="300" fill="#DE2F26"/><rect y="300" width="450" height="300" fill="#DE2F26"/><rect x="450" y="300" width="450" height="300" fill="#16357E"/><rect x="375" width="150" height="600" fill="#fff"/><rect y="225" width="900" height="150" fill="#fff"/><circle cx="450" cy="300" r="82" fill="#fff"/><circle cx="450" cy="300" r="70" fill="#2E7D32"/><rect x="446" y="238" width="8" height="124" fill="#EBA02C"/><rect x="388" y="296" width="124" height="8" fill="#EBA02C"/></svg>Authentic Dominican Cuisine &middot; Highlandtown, Baltimore</p>
     <h1 class="hero-mark"><span class="mark-ana">Ana</span><span class="mark-rest">Restaurant</span></h1>
     <p class="hero-tag">"El Verdadero Sabor Dominicano." Fresh, homemade, and full of heart &mdash; right here on Eastern Ave.</p>
     <div class="hero-meta">
